@@ -27,6 +27,7 @@ public class Tela extends javax.swing.JFrame {
     
     int tipo;
     
+    ArrayList<Veiculo> lista = new ArrayList<Veiculo>();
     ArrayList<Carro> listaCarro = new ArrayList<Carro>();
     ArrayList<Moto> listaMoto = new ArrayList<Moto>();
     ArrayList<Bike> listaBike = new ArrayList<Bike>();
@@ -447,31 +448,37 @@ public class Tela extends javax.swing.JFrame {
         
         Object dataRow[] =  new Object[6];
         model.setRowCount(0);
-        
-         for(int i = 0; i < 100; i++){
-             
-             if ( tipo == 1) {
+         
+        if (tipo == 1) {
+             for(int i = 0; i < listaCarro.size(); i++){
              dataRow[0] = listaCarro.get(i).getMarca();
              dataRow[1] = listaCarro.get(i).getModelo();
              dataRow[2] = listaCarro.get(i).getCor();
              dataRow[3] = listaCarro.get(i).getPortas();
              dataRow[4] = listaCarro.get(i).getCambio();
              model.addRow(dataRow);
-             } else if ( tipo == 2 ) {
-                 dataRow[0] = listaMoto.get(i).getMarca();
-                 dataRow[1] = listaMoto.get(i).getModelo();
-                 dataRow[2] = listaMoto.get(i).getCor();
-                 dataRow[5] = listaMoto.get(i).getCilindradas();
-            model.addRow(dataRow);
-             } else if ( tipo == 3 ) {
-                 dataRow[0] = listaBike.get(i).getMarca();
-                 dataRow[1] = listaBike.get(i).getModelo();
-                 dataRow[2] = listaBike.get(i).getCor();
-                 dataRow[6] = listaBike.get(i).getTamanho();
-            model.addRow(dataRow);
-             }
-             
-         }
+  
+         } 
+        } else if (tipo == 2) {
+            for(int i = 0; i < listaMoto.size(); i++){
+             dataRow[0] = listaMoto.get(i).getMarca();
+             dataRow[1] = listaMoto.get(i).getModelo();
+             dataRow[2] = listaMoto.get(i).getCor();
+             dataRow[5] = listaMoto.get(i).getCilindradas();
+             model.addRow(dataRow);
+         }   
+        } else if (tipo == 3) {
+             for(int i = 0; i < listaBike.size(); i++){
+             dataRow[0] = listaBike.get(i).getMarca();
+             dataRow[1] = listaBike.get(i).getModelo();
+             dataRow[2] = listaBike.get(i).getCor();
+             dataRow[6] = listaBike.get(i).getTamanho();
+             model.addRow(dataRow);
+         }   
+        
+        }
+      
+        
         
     }
     
